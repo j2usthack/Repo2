@@ -10,8 +10,15 @@ namespace Leap_year
     {
         private static void Main()
         {
-            int year = Convert.ToInt32(Console.ReadLine()); //конвертируем число в строку
-            Console.WriteLine($"{year} г. {(IsLeapYear(year) ? "високосный" : "не високосный")}");//первая часть кода выведет переменную, вторая часть кода применит к этой переменной метод "IsLeapYear".
+            int year = Convert.ToInt32(Console.ReadLine()); //конвертирует строковое значение в 32-битное целочисленное значение со знаком.
+            if (IsLeapYear(year)) //Если метод
+            {
+                Console.WriteLine("Год високосный");
+            }
+            else
+            {
+                Console.WriteLine("Год не високосный");
+            }
         }
         private static bool IsLeapYear(int year)
         {
