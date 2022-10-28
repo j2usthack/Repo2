@@ -8,18 +8,22 @@ namespace Leap_year
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Console.Write("Введите год для проверки на високосность: ");
-            string userString = Console.ReadLine();
-            int n, t;            
-            n = Convert.ToInt32(userString);                     
-            t = n % 4;
-            if (t == 0)
-                Console.Write("Год високосный");
-            else
-                Console.Write("Год НЕ високосный");
-            
+            int year = Convert.ToInt32(Console.ReadLine()); //конвертируем число в строку
+            Console.WriteLine($"{year} г. {(IsLeapYear(year) ? "високосный" : "не високосный")}");//первая часть кода выведет переменную, вторая часть кода применит к этой переменной метод "IsLeapYear".
+        }
+        private static bool IsLeapYear(int year)
+        {
+            if (year % 4 == 0)
+            {
+                if (year % 100 == 0 & year % 400 != 0)
+                {
+                    return false;
+                }
+                return true;
+            }
+            return false;
         }
     }
 }
